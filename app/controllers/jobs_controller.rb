@@ -29,7 +29,7 @@ class JobsController < ApplicationController
 
   def update
     if @job.update(job_params)
-      redirect_to comapny_job_path(@job)
+      redirect_to company_job_path(@company, @job.id)
     else
       render :edit
     end  

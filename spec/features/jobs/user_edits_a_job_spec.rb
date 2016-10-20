@@ -10,9 +10,8 @@ describe "User edits a job" do
     fill_in "job[level_of_interest]", with: 80
     
     click_button "Create"
-    save_and_open_page
     expect(page).to have_content("The Guardian")
-    click_button "Edit"
+    click_link "Edit"
 
     fill_in "job[title]", with: "Journalist"
     fill_in "job[description]", with: "Another option!"
