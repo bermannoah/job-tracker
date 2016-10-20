@@ -21,6 +21,22 @@ class CategoriesController < ApplicationController
     end
   end
   
+  def edit
+  end
+  
+  def update
+    if @category.update(category_params)
+      redirect_to category_path(@category)
+    else
+      render :edit
+    end
+  end
+  
+  def destroy
+    @category.delete
+    redirect_to categories_path
+  end
+  
   
 
 
