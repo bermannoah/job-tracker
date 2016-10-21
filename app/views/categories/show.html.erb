@@ -1,8 +1,8 @@
 Title: <%= @category.title %>
 
 <ul>
-<% @category.jobs.each do |job| %>
-  <li><%= link_to job.title, job_path(@job) %></li>
+<% @jobs.each do |job| %>
+  <li><%= link_to job.title, company_job_path(job.company_id, job) %></li>
 <% end %>
 </ul>
 
