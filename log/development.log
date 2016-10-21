@@ -11023,3 +11023,211 @@ Processing by JobsController#edit as HTML
   Rendered jobs/_form.html.erb (2.1ms)
   Rendered jobs/edit.html.erb within layouts/application (2.8ms)
 Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/companies/6/jobs/59" for ::1 at 2016-10-20 18:05:29 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"6", "id"=>"59"}
+  [1m[35mJob Load (0.6ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 59]]
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCompany Load (0.3ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered jobs/show.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 271ms (Views: 234.2ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/companies/6/jobs" for ::1 at 2016-10-20 18:05:30 -0600
+Processing by JobsController#index as HTML
+  Parameters: {"company_id"=>"6"}
+  [1m[35mCompany Load (0.3ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 6]]
+  Rendered jobs/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 21ms (Views: 12.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/companies/6/jobs/59/edit" for ::1 at 2016-10-20 18:05:30 -0600
+Processing by JobsController#edit as HTML
+  Parameters: {"company_id"=>"6", "id"=>"59"}
+  [1m[35mJob Load (0.2ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 59]]
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered jobs/_form.html.erb (41.9ms)
+  Rendered jobs/edit.html.erb within layouts/application (45.3ms)
+Completed 200 OK in 66ms (Views: 63.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies/6/jobs/51" for ::1 at 2016-10-20 18:05:30 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"6", "id"=>"51"}
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1[0m  [["id", 51]]
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  Rendered jobs/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 22ms (Views: 19.9ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/companies/6/jobs/59" for ::1 at 2016-10-20 18:05:31 -0600
+Processing by JobsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"BpC6EysW3GbeRGcbJm5I6f4MV3dVYGQEA4qJq6scwS/qWH8bNqS9dCoVtoCx5p75TLFy/8iHqDVaFw2Sp1nq2Q==", "company_id"=>"6", "id"=>"59"}
+  [1m[35mJob Load (0.2ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 59]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "jobs" WHERE "jobs"."id" = $1[0m  [["id", 59]]
+  [1m[35m (0.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/companies/6/jobs
+Completed 302 Found in 5ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/companies/6/jobs" for ::1 at 2016-10-20 18:05:31 -0600
+Processing by JobsController#index as HTML
+  Parameters: {"company_id"=>"6"}
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mJob Load (0.3ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 6]]
+  Rendered jobs/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 16ms (Views: 14.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/companies/6/jobs/54" for ::1 at 2016-10-20 18:05:32 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"6", "id"=>"54"}
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1[0m  [["id", 54]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  Rendered jobs/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/companies/6/jobs/54" for ::1 at 2016-10-20 18:05:33 -0600
+Processing by JobsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"q5BUV3w+XPecapi6h1Hv4wImmmTbfVN57Xg1qli27itHWJFfYYw95Wg7SSEQ2TnzsJu/7Eaan0i05bGTVPPF3Q==", "company_id"=>"6", "id"=>"54"}
+  [1m[35mJob Load (0.3ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 54]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "jobs" WHERE "jobs"."id" = $1[0m  [["id", 54]]
+  [1m[35m (6.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/companies/6/jobs
+Completed 302 Found in 9ms (ActiveRecord: 6.6ms)
+
+
+Started GET "/companies/6/jobs" for ::1 at 2016-10-20 18:05:33 -0600
+Processing by JobsController#index as HTML
+  Parameters: {"company_id"=>"6"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mJob Load (0.2ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 6]]
+  Rendered jobs/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 17ms (Views: 15.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/companies/6/jobs/new" for ::1 at 2016-10-20 18:05:34 -0600
+Processing by JobsController#new as HTML
+  Parameters: {"company_id"=>"6"}
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered jobs/_form.html.erb (1.7ms)
+  Rendered jobs/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2016-10-20 18:31:03 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 232ms (Views: 219.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/companies/4" for ::1 at 2016-10-20 18:31:05 -0600
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+Redirected to http://localhost:3000/companies/4/jobs
+Completed 302 Found in 8ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/companies/4/jobs" for ::1 at 2016-10-20 18:31:05 -0600
+Processing by JobsController#index as HTML
+  Parameters: {"company_id"=>"4"}
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mJob Load (0.4ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 4]]
+  Rendered jobs/index.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 58ms (Views: 42.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/companies/4/jobs/40" for ::1 at 2016-10-20 18:31:07 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"4", "id"=>"40"}
+  [1m[35mJob Load (0.2ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 40]]
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered jobs/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 33ms (Views: 30.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/companies/4/jobs/40/edit" for ::1 at 2016-10-20 18:31:09 -0600
+Processing by JobsController#edit as HTML
+  Parameters: {"company_id"=>"4", "id"=>"40"}
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1[0m  [["id", 40]]
+  [1m[35mCompany Load (0.4ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered jobs/_form.html.erb (19.6ms)
+  Rendered jobs/edit.html.erb within layouts/application (26.8ms)
+Completed 200 OK in 59ms (Views: 46.6ms | ActiveRecord: 2.9ms)
+
+
+Started PATCH "/companies/4/jobs/40" for ::1 at 2016-10-20 18:31:11 -0600
+Processing by JobsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TvFT7snyIEjE+TtyczwFwdfvyEHiuMis8AM34dE9SguiOZbm1EBBWjCo6unktNPRZVLtyX9fBJ2pnrPY3Xhh/Q==", "job"=>{"title"=>"Teacher", "description"=>"What a great position!", "level_of_interest"=>"108", "category_id"=>"1"}, "commit"=>"Update Job", "company_id"=>"4", "id"=>"40"}
+  [1m[35mJob Load (0.2ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 40]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "jobs" SET "category_id" = $1, "updated_at" = $2 WHERE "jobs"."id" = $3  [["category_id", 1], ["updated_at", "2016-10-21 00:31:11.953422"], ["id", 40]]
+  [1m[36m (6.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/companies/4/jobs/40
+Completed 302 Found in 12ms (ActiveRecord: 7.1ms)
+
+
+Started GET "/companies/4/jobs/40" for ::1 at 2016-10-20 18:31:11 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"4", "id"=>"40"}
+  [1m[35mJob Load (0.2ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 40]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered jobs/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories/1" for ::1 at 2016-10-20 18:31:13 -0600
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."category_id" = $1[0m  [["category_id", 1]]
+  Rendered categories/show.html.erb within layouts/application (4.8ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"jobs", :id=>nil} missing required keys: [:id]):
+    2: 
+    3: <ul>
+    4: <% @category.jobs.each do |job| %>
+    5:   <li><%= link_to job.title, job_path(@job) %></li>
+    6: <% end %>
+    7: </ul>
+    8: 
+  app/views/categories/show.html.erb:5:in `block in _app_views_categories_show_html_erb___4516863265050634060_70133820169420'
+  app/views/categories/show.html.erb:4:in `_app_views_categories_show_html_erb___4516863265050634060_70133820169420'
+
+
+  Rendered /Users/noah/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.7ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (47.9ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (36.3ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (80.4ms)
