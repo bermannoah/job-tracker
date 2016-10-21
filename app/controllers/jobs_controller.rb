@@ -21,7 +21,8 @@ class JobsController < ApplicationController
     end
   end
 
-  def show    
+  def show 
+    @comment = Comment.new
   end
 
   def edit
@@ -51,7 +52,7 @@ class JobsController < ApplicationController
   def set_job
     @job = Job.find(params[:id])
   end
-
+  
   def job_params
     params.require(:job).permit(:title, :description, :level_of_interest, :category_id)
   end
