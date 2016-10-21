@@ -1,3 +1,5 @@
 capybara*.html
+
 .DS_Store
-tmp
+
+tmp/
