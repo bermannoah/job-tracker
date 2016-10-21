@@ -12045,3 +12045,125 @@ Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6
 
 
 Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-10-20 18:41:49 -0600
+
+
+Started GET "/" for ::1 at 2016-10-21 10:29:59 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (6.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (6.6ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 247ms (Views: 217.3ms | ActiveRecord: 16.9ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-10-21 10:30:00 -0600
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-10-21 10:30:00 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-10-21 10:30:00 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-10-21 10:30:00 -0600
+
+
+Started GET "/companies/3" for ::1 at 2016-10-21 10:30:01 -0600
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCompany Load (0.6ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 3]]
+Redirected to http://localhost:3000/companies/3/jobs
+Completed 302 Found in 12ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/companies/3/jobs" for ::1 at 2016-10-21 10:30:01 -0600
+Processing by JobsController#index as HTML
+  Parameters: {"company_id"=>"3"}
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mJob Load (0.7ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 3]]
+  Rendered jobs/index.html.erb within layouts/application (26.1ms)
+Completed 200 OK in 66ms (Views: 43.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/companies/3/jobs/25" for ::1 at 2016-10-21 10:30:02 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"3", "id"=>"25"}
+  [1m[35mJob Load (0.2ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 25]]
+  [1m[36mCompany Load (1.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered jobs/show.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 38ms (Views: 34.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/companies/3/jobs/25/edit" for ::1 at 2016-10-21 10:30:03 -0600
+Processing by JobsController#edit as HTML
+  Parameters: {"company_id"=>"3", "id"=>"25"}
+  [1m[36mJob Load (0.3ms)[0m  [1mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1[0m  [["id", 25]]
+  [1m[35mCompany Load (0.3ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered jobs/_form.html.erb (31.8ms)
+  Rendered jobs/edit.html.erb within layouts/application (39.1ms)
+Completed 200 OK in 63ms (Views: 52.2ms | ActiveRecord: 2.1ms)
+
+
+Started PATCH "/companies/3/jobs/25" for ::1 at 2016-10-21 10:30:05 -0600
+Processing by JobsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"93c+OsFyXoolaI2QWjlXpCwIavBnDtV6kj7PduIv8OUbv/sy3MA/mNE5XAvNsYG0nrVPePrpGUvLo0tP7mrbEw==", "job"=>{"title"=>"Product Manager", "description"=>"What a great position!", "level_of_interest"=>"68", "category_id"=>"1"}, "commit"=>"Update Job", "company_id"=>"3", "id"=>"25"}
+  [1m[35mJob Load (0.2ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 25]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (14.6ms)[0m  UPDATE "jobs" SET "category_id" = $1, "updated_at" = $2 WHERE "jobs"."id" = $3  [["category_id", 1], ["updated_at", "2016-10-21 16:30:05.853810"], ["id", 25]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/companies/3/jobs/25
+Completed 302 Found in 26ms (ActiveRecord: 15.9ms)
+
+
+Started GET "/companies/3/jobs/25" for ::1 at 2016-10-21 10:30:05 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"3", "id"=>"25"}
+  [1m[35mJob Load (0.2ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 25]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered jobs/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories/1" for ::1 at 2016-10-21 10:30:06 -0600
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."category_id" = $1[0m  [["category_id", 1]]
+  Rendered categories/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 15ms (Views: 11.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories/1" for ::1 at 2016-10-21 10:31:28 -0600
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."category_id" = $1[0m  [["category_id", 1]]
+  Rendered categories/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/companies/3/jobs/25" for ::1 at 2016-10-21 10:31:36 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"3", "id"=>"25"}
+  [1m[35mJob Load (0.2ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 25]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered jobs/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 16ms (Views: 14.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/companies/4/jobs/36" for ::1 at 2016-10-21 10:31:38 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"4", "id"=>"36"}
+  [1m[35mJob Load (0.2ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 36]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered jobs/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 13ms (Views: 11.0ms | ActiveRecord: 0.6ms)

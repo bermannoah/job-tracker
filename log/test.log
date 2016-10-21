@@ -38265,3 +38265,763 @@ Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.2ms)
   [1m[35m (0.1ms)[0m  ROLLBACK
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
   [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Started GET "/categories/new" for 127.0.0.1 at 2016-10-21 10:31:46 -0600
+Processing by CategoriesController#new as HTML
+  Rendered categories/_form.html.erb (9.5ms)
+  Rendered categories/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 159ms (Views: 147.3ms | ActiveRecord: 2.3ms)
+Started POST "/categories" for 127.0.0.1 at 2016-10-21 10:31:46 -0600
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "category"=>{"title"=>"Developer"}, "commit"=>"Create Category"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (9.4ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Developer' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Developer"], ["created_at", "2016-10-21 16:31:46.911787"], ["updated_at", "2016-10-21 16:31:46.911787"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/categories/153
+Completed 302 Found in 23ms (ActiveRecord: 10.2ms)
+Started GET "/categories/153" for 127.0.0.1 at 2016-10-21 10:31:46 -0600
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"153"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 153]]
+  [1m[35mJob Load (0.7ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."category_id" = $1  [["category_id", 153]]
+  Rendered categories/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 16ms (Views: 3.8ms | ActiveRecord: 1.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/categories/new" for 127.0.0.1 at 2016-10-21 10:31:46 -0600
+Processing by CategoriesController#new as HTML
+  Rendered categories/_form.html.erb (1.1ms)
+  Rendered categories/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+Started POST "/categories" for 127.0.0.1 at 2016-10-21 10:31:46 -0600
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "category"=>{"title"=>"Developer"}, "commit"=>"Create Category"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Developer' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Developer"], ["created_at", "2016-10-21 16:31:46.949979"], ["updated_at", "2016-10-21 16:31:46.949979"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/categories/154
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+Started GET "/categories/154" for 127.0.0.1 at 2016-10-21 10:31:46 -0600
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"154"}
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 154]]
+  [1m[35mJob Load (0.1ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."category_id" = $1  [["category_id", 154]]
+  Rendered categories/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.3ms)
+Started GET "/categories/new" for 127.0.0.1 at 2016-10-21 10:31:46 -0600
+Processing by CategoriesController#new as HTML
+  Rendered categories/_form.html.erb (0.7ms)
+  Rendered categories/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+Started POST "/categories" for 127.0.0.1 at 2016-10-21 10:31:46 -0600
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "category"=>{"title"=>"Developer"}, "commit"=>"Create Category"}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Developer' LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered categories/_form.html.erb (1.1ms)
+  Rendered categories/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Entertainment' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["title", "Entertainment"], ["created_at", "2016-10-21 16:31:46.974786"], ["updated_at", "2016-10-21 16:31:46.974786"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Drama' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["title", "Drama"], ["created_at", "2016-10-21 16:31:46.976717"], ["updated_at", "2016-10-21 16:31:46.976717"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/categories" for 127.0.0.1 at 2016-10-21 10:31:46 -0600
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.2ms)
+Started DELETE "/categories/155" for 127.0.0.1 at 2016-10-21 10:31:46 -0600
+Processing by CategoriesController#destroy as HTML
+  Parameters: {"id"=>"155"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 155]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "categories" WHERE "categories"."id" = $1  [["id", 155]]
+Redirected to http://www.example.com/categories
+Completed 302 Found in 2ms (ActiveRecord: 0.6ms)
+Started GET "/categories" for 127.0.0.1 at 2016-10-21 10:31:46 -0600
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Entertainment' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["title", "Entertainment"], ["created_at", "2016-10-21 16:31:47.001238"], ["updated_at", "2016-10-21 16:31:47.001238"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/categories" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.1ms)
+Started GET "/categories/157/edit" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"157"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 157]]
+  Rendered categories/_form.html.erb (1.3ms)
+  Rendered categories/edit.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.2ms)
+Started PATCH "/categories/157" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by CategoriesController#update as HTML
+  Parameters: {"utf8"=>"✓", "category"=>{"title"=>"Drama"}, "commit"=>"Update Category", "id"=>"157"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 157]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories" WHERE ("categories"."title" = 'Drama' AND "categories"."id" != 157) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "categories" SET "title" = $1, "updated_at" = $2 WHERE "categories"."id" = $3[0m  [["title", "Drama"], ["updated_at", "2016-10-21 16:31:47.020183"], ["id", 157]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/categories/157
+Completed 302 Found in 5ms (ActiveRecord: 0.8ms)
+Started GET "/categories/157" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"157"}
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 157]]
+  [1m[35mJob Load (0.1ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."category_id" = $1  [["category_id", 157]]
+  Rendered categories/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Entertainment' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Entertainment"], ["created_at", "2016-10-21 16:31:47.036222"], ["updated_at", "2016-10-21 16:31:47.036222"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.1ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Development' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Development"], ["created_at", "2016-10-21 16:31:47.037827"], ["updated_at", "2016-10-21 16:31:47.037827"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/categories" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Entertainment' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["title", "Entertainment"], ["created_at", "2016-10-21 16:31:47.053001"], ["updated_at", "2016-10-21 16:31:47.053001"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Development' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["title", "Development"], ["created_at", "2016-10-21 16:31:47.054892"], ["updated_at", "2016-10-21 16:31:47.054892"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/categories" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCompany Exists (0.3ms)[0m  SELECT  1 AS one FROM "companies" WHERE "companies"."name" = 'ESPN' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "companies" ("name", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "ESPN"], ["city", "NYC"], ["created_at", "2016-10-21 16:31:47.073474"], ["updated_at", "2016-10-21 16:31:47.073474"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/companies/156/jobs/new" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#new as HTML
+  Parameters: {"company_id"=>"156"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 156]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered jobs/_form.html.erb (5.6ms)
+  Rendered jobs/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 18ms (Views: 12.8ms | ActiveRecord: 0.6ms)
+Started POST "/companies/156/jobs" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#create as HTML
+  Parameters: {"utf8"=>"✓", "job"=>{"title"=>"Developer", "description"=>"So fun!", "level_of_interest"=>"80"}, "commit"=>"Create Job", "company_id"=>"156"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 156]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "jobs" ("title", "description", "level_of_interest", "company_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Developer"], ["description", "So fun!"], ["level_of_interest", 80], ["company_id", 156], ["created_at", "2016-10-21 16:31:47.110252"], ["updated_at", "2016-10-21 16:31:47.110252"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/companies/156/jobs/102
+Completed 302 Found in 6ms (ActiveRecord: 0.8ms)
+Started GET "/companies/156/jobs/102" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"156", "id"=>"102"}
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1[0m  [["id", 102]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 156]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 156]]
+  Rendered jobs/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.5ms)
+  [1m[35mJob Load (0.3ms)[0m  SELECT  "jobs".* FROM "jobs"  ORDER BY "jobs"."id" DESC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCompany Exists (0.2ms)[0m  SELECT  1 AS one FROM "companies" WHERE "companies"."name" = 'ESPN' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "ESPN"], ["city", "NYC"], ["created_at", "2016-10-21 16:31:47.132600"], ["updated_at", "2016-10-21 16:31:47.132600"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.1ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Development' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Development"], ["created_at", "2016-10-21 16:31:47.134778"], ["updated_at", "2016-10-21 16:31:47.134778"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.1ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Another Test' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Another Test"], ["created_at", "2016-10-21 16:31:47.136274"], ["updated_at", "2016-10-21 16:31:47.136274"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Haberdashery' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Haberdashery"], ["created_at", "2016-10-21 16:31:47.137799"], ["updated_at", "2016-10-21 16:31:47.137799"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'It''s going to be so cold outside' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "It's going to be so cold outside"], ["created_at", "2016-10-21 16:31:47.139231"], ["updated_at", "2016-10-21 16:31:47.139231"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/companies/157/jobs/new" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#new as HTML
+  Parameters: {"company_id"=>"157"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 157]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered jobs/_form.html.erb (2.7ms)
+  Rendered jobs/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 0.5ms)
+Started POST "/companies/157/jobs" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#create as HTML
+  Parameters: {"utf8"=>"✓", "job"=>{"title"=>"Developer", "description"=>"So fun!", "level_of_interest"=>"80", "category_id"=>"164"}, "commit"=>"Create Job", "company_id"=>"157"}
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 157]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "jobs" ("title", "description", "level_of_interest", "category_id", "company_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Developer"], ["description", "So fun!"], ["level_of_interest", 80], ["category_id", 164], ["company_id", 157], ["created_at", "2016-10-21 16:31:47.157209"], ["updated_at", "2016-10-21 16:31:47.157209"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/companies/157/jobs/103
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+Started GET "/companies/157/jobs/103" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"157", "id"=>"103"}
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1[0m  [["id", 103]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 157]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 157]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 164]]
+  Rendered jobs/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCompany Exists (0.2ms)[0m  SELECT  1 AS one FROM "companies" WHERE "companies"."name" = 'ESPN' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "companies" ("name", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "ESPN"], ["city", "NYC"], ["created_at", "2016-10-21 16:31:47.173664"], ["updated_at", "2016-10-21 16:31:47.173664"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Development' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Development"], ["created_at", "2016-10-21 16:31:47.175679"], ["updated_at", "2016-10-21 16:31:47.175679"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Another Test' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Another Test"], ["created_at", "2016-10-21 16:31:47.177273"], ["updated_at", "2016-10-21 16:31:47.177273"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Haberdashery' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Haberdashery"], ["created_at", "2016-10-21 16:31:47.178784"], ["updated_at", "2016-10-21 16:31:47.178784"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'It''s going to be so cold outside' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "It's going to be so cold outside"], ["created_at", "2016-10-21 16:31:47.180402"], ["updated_at", "2016-10-21 16:31:47.180402"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/companies/158/jobs/new" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#new as HTML
+  Parameters: {"company_id"=>"158"}
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 158]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered jobs/_form.html.erb (2.0ms)
+  Rendered jobs/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.2ms)
+Started POST "/companies/158/jobs" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#create as HTML
+  Parameters: {"utf8"=>"✓", "job"=>{"title"=>"Developer", "description"=>"So fun!", "level_of_interest"=>"80", "category_id"=>"168"}, "commit"=>"Create Job", "company_id"=>"158"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 158]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "jobs" ("title", "description", "level_of_interest", "category_id", "company_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Developer"], ["description", "So fun!"], ["level_of_interest", 80], ["category_id", 168], ["company_id", 158], ["created_at", "2016-10-21 16:31:47.196303"], ["updated_at", "2016-10-21 16:31:47.196303"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/companies/158/jobs/104
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms)
+Started GET "/companies/158/jobs/104" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"158", "id"=>"104"}
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1[0m  [["id", 104]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 158]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 158]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 168]]
+  Rendered jobs/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.4ms)
+Started GET "/companies/158/jobs/new" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#new as HTML
+  Parameters: {"company_id"=>"158"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 158]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered jobs/_form.html.erb (1.7ms)
+  Rendered jobs/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.3ms)
+Started POST "/companies/158/jobs" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#create as HTML
+  Parameters: {"utf8"=>"✓", "job"=>{"title"=>"Some other thing", "description"=>"It's really great!", "level_of_interest"=>"90", "category_id"=>"168"}, "commit"=>"Create Job", "company_id"=>"158"}
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 158]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "jobs" ("title", "description", "level_of_interest", "category_id", "company_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Some other thing"], ["description", "It's really great!"], ["level_of_interest", 90], ["category_id", 168], ["company_id", 158], ["created_at", "2016-10-21 16:31:47.217039"], ["updated_at", "2016-10-21 16:31:47.217039"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/companies/158/jobs/105
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+Started GET "/companies/158/jobs/105" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"158", "id"=>"105"}
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1[0m  [["id", 105]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 158]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 158]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 168]]
+  Rendered jobs/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.5ms)
+Started GET "/categories/168" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"168"}
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 168]]
+  [1m[35mJob Load (0.2ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."category_id" = $1  [["category_id", 168]]
+  Rendered categories/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/companies/new" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by CompaniesController#new as HTML
+  Rendered companies/_form.html.erb (3.0ms)
+  Rendered companies/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.0ms)
+Started POST "/companies" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by CompaniesController#create as HTML
+  Parameters: {"utf8"=>"✓", "company"=>{"name"=>"ESPN", "city"=>"LA"}, "commit"=>"Create Company"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCompany Exists (0.2ms)[0m  SELECT  1 AS one FROM "companies" WHERE "companies"."name" = 'ESPN' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "companies" ("name", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "ESPN"], ["city", "LA"], ["created_at", "2016-10-21 16:31:47.285729"], ["updated_at", "2016-10-21 16:31:47.285729"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/companies/159
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+Started GET "/companies/159" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"159"}
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 159]]
+Redirected to http://www.example.com/companies/159/jobs
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/companies/159/jobs" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#index as HTML
+  Parameters: {"company_id"=>"159"}
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 159]]
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 159]]
+  Rendered jobs/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.3ms)
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies"  ORDER BY "companies"."id" DESC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "companies"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCompany Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "companies" WHERE "companies"."name" = 'ESPN' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "companies" ("name", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "ESPN"], ["city", "LA"], ["created_at", "2016-10-21 16:31:47.308501"], ["updated_at", "2016-10-21 16:31:47.308501"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/companies" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.2ms)
+Started DELETE "/companies/160" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by CompaniesController#destroy as HTML
+  Parameters: {"id"=>"160"}
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 160]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "companies" WHERE "companies"."id" = $1  [["id", 160]]
+Redirected to http://www.example.com/companies
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+Started GET "/companies" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCompany Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "companies" WHERE "companies"."name" = 'ESPN' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "companies" ("name", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "ESPN"], ["city", "LA"], ["created_at", "2016-10-21 16:31:47.335119"], ["updated_at", "2016-10-21 16:31:47.335119"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/companies/161/edit" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"161"}
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 161]]
+  Rendered companies/_form.html.erb (3.0ms)
+  Rendered companies/edit.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.1ms)
+Started PATCH "/companies/161" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by CompaniesController#update as HTML
+  Parameters: {"utf8"=>"✓", "company"=>{"name"=>"EA Sports", "city"=>"LA"}, "commit"=>"Update Company", "id"=>"161"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 161]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCompany Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "companies" WHERE ("companies"."name" = 'EA Sports' AND "companies"."id" != 161) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "companies" SET "name" = $1, "updated_at" = $2 WHERE "companies"."id" = $3  [["name", "EA Sports"], ["updated_at", "2016-10-21 16:31:47.354793"], ["id", 161]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCompany Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "companies" WHERE ("companies"."name" = 'EA Sports' AND "companies"."id" != 161) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/companies/161
+Completed 302 Found in 7ms (ActiveRecord: 1.6ms)
+Started GET "/companies/161" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"161"}
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 161]]
+Redirected to http://www.example.com/companies/161/jobs
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Started GET "/companies/161/jobs" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#index as HTML
+  Parameters: {"company_id"=>"161"}
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 161]]
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 161]]
+  Rendered jobs/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms)
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies"  ORDER BY "companies"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCompany Exists (0.2ms)[0m  SELECT  1 AS one FROM "companies" WHERE "companies"."name" = 'ESPN' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "companies" ("name", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "ESPN"], ["city", "LA"], ["created_at", "2016-10-21 16:31:47.378752"], ["updated_at", "2016-10-21 16:31:47.378752"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCompany Exists (0.2ms)[0m  SELECT  1 AS one FROM "companies" WHERE "companies"."name" = 'Disney' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Disney"], ["city", "LA"], ["created_at", "2016-10-21 16:31:47.380888"], ["updated_at", "2016-10-21 16:31:47.380888"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/companies" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCompany Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "companies" WHERE "companies"."name" = 'ESPN' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "companies" ("name", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "ESPN"], ["city", "LA"], ["created_at", "2016-10-21 16:31:47.398076"], ["updated_at", "2016-10-21 16:31:47.398076"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "jobs" ("title", "level_of_interest", "company_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Developer"], ["level_of_interest", 90], ["company_id", 164], ["created_at", "2016-10-21 16:31:47.400315"], ["updated_at", "2016-10-21 16:31:47.400315"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/companies/164" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"164"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 164]]
+Redirected to http://www.example.com/companies/164/jobs
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+Started GET "/companies/164/jobs" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#index as HTML
+  Parameters: {"company_id"=>"164"}
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 164]]
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 164]]
+  Rendered jobs/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCompany Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "companies" WHERE "companies"."name" = 'ESPN' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "companies" ("name", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "ESPN"], ["city", "NYC"], ["created_at", "2016-10-21 16:31:47.422529"], ["updated_at", "2016-10-21 16:31:47.422529"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/companies/165/jobs/new" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#new as HTML
+  Parameters: {"company_id"=>"165"}
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 165]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered jobs/_form.html.erb (2.3ms)
+  Rendered jobs/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.3ms)
+Started POST "/companies/165/jobs" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#create as HTML
+  Parameters: {"utf8"=>"✓", "job"=>{"title"=>"Developer", "description"=>"So fun!", "level_of_interest"=>"80"}, "commit"=>"Create Job", "company_id"=>"165"}
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 165]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "jobs" ("title", "description", "level_of_interest", "company_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["title", "Developer"], ["description", "So fun!"], ["level_of_interest", 80], ["company_id", 165], ["created_at", "2016-10-21 16:31:47.439858"], ["updated_at", "2016-10-21 16:31:47.439858"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/companies/165/jobs/107
+Completed 302 Found in 4ms (ActiveRecord: 0.6ms)
+Started GET "/companies/165/jobs/107" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"165", "id"=>"107"}
+  [1m[35mJob Load (0.2ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 107]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 165]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 165]]
+  Rendered jobs/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.4ms)
+  [1m[36mJob Load (0.3ms)[0m  [1mSELECT  "jobs".* FROM "jobs"  ORDER BY "jobs"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCompany Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "companies" WHERE "companies"."name" = 'ESPN' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "companies" ("name", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "ESPN"], ["city", "NYC"], ["created_at", "2016-10-21 16:31:47.461565"], ["updated_at", "2016-10-21 16:31:47.461565"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Development' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["title", "Development"], ["created_at", "2016-10-21 16:31:47.464019"], ["updated_at", "2016-10-21 16:31:47.464019"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Another Test' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["title", "Another Test"], ["created_at", "2016-10-21 16:31:47.467437"], ["updated_at", "2016-10-21 16:31:47.467437"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Haberdashery' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["title", "Haberdashery"], ["created_at", "2016-10-21 16:31:47.469421"], ["updated_at", "2016-10-21 16:31:47.469421"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'It''s going to be so cold outside' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["title", "It's going to be so cold outside"], ["created_at", "2016-10-21 16:31:47.471682"], ["updated_at", "2016-10-21 16:31:47.471682"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/companies/166/jobs/new" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#new as HTML
+  Parameters: {"company_id"=>"166"}
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 166]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered jobs/_form.html.erb (2.8ms)
+  Rendered jobs/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.2ms)
+Started POST "/companies/166/jobs" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#create as HTML
+  Parameters: {"utf8"=>"✓", "job"=>{"title"=>"Developer", "description"=>"So fun!", "level_of_interest"=>"80", "category_id"=>"172"}, "commit"=>"Create Job", "company_id"=>"166"}
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 166]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "jobs" ("title", "description", "level_of_interest", "category_id", "company_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Developer"], ["description", "So fun!"], ["level_of_interest", 80], ["category_id", 172], ["company_id", 166], ["created_at", "2016-10-21 16:31:47.492061"], ["updated_at", "2016-10-21 16:31:47.492061"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/companies/166/jobs/108
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+Started GET "/companies/166/jobs/108" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"166", "id"=>"108"}
+  [1m[35mJob Load (0.2ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 108]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 166]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 166]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 172]]
+  Rendered jobs/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCompany Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "companies" WHERE "companies"."name" = 'The Guardian' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "companies" ("name", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "The Guardian"], ["city", "London"], ["created_at", "2016-10-21 16:31:47.519984"], ["updated_at", "2016-10-21 16:31:47.519984"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/companies/167/jobs/new" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#new as HTML
+  Parameters: {"company_id"=>"167"}
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 167]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered jobs/_form.html.erb (2.2ms)
+  Rendered jobs/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.2ms)
+Started POST "/companies/167/jobs" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#create as HTML
+  Parameters: {"utf8"=>"✓", "job"=>{"title"=>"Developer", "description"=>"The best!", "level_of_interest"=>"80"}, "commit"=>"Create Job", "company_id"=>"167"}
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 167]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "jobs" ("title", "description", "level_of_interest", "company_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["title", "Developer"], ["description", "The best!"], ["level_of_interest", 80], ["company_id", 167], ["created_at", "2016-10-21 16:31:47.536800"], ["updated_at", "2016-10-21 16:31:47.536800"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/companies/167/jobs/109
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms)
+Started GET "/companies/167/jobs/109" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"167", "id"=>"109"}
+  [1m[35mJob Load (0.1ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 109]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 167]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 167]]
+  Rendered jobs/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.3ms)
+Started GET "/companies/167/jobs/new" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#new as HTML
+  Parameters: {"company_id"=>"167"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 167]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered jobs/_form.html.erb (1.9ms)
+  Rendered jobs/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.4ms)
+Started POST "/companies/167/jobs" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#create as HTML
+  Parameters: {"utf8"=>"✓", "job"=>{"title"=>"Journalist", "description"=>"Also the best!", "level_of_interest"=>"80"}, "commit"=>"Create Job", "company_id"=>"167"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 167]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "jobs" ("title", "description", "level_of_interest", "company_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Journalist"], ["description", "Also the best!"], ["level_of_interest", 80], ["company_id", 167], ["created_at", "2016-10-21 16:31:47.563413"], ["updated_at", "2016-10-21 16:31:47.563413"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/companies/167/jobs/110
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+Started GET "/companies/167/jobs/110" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"167", "id"=>"110"}
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1[0m  [["id", 110]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 167]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 167]]
+  Rendered jobs/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.3ms)
+Started GET "/companies/167" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"167"}
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 167]]
+Redirected to http://www.example.com/companies/167/jobs
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+Started GET "/companies/167/jobs" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#index as HTML
+  Parameters: {"company_id"=>"167"}
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 167]]
+  [1m[35mJob Load (0.2ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 167]]
+  Rendered jobs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.3ms)
+Started GET "/companies/167/jobs/110" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"167", "id"=>"110"}
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1[0m  [["id", 110]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 167]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 167]]
+  Rendered jobs/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.4ms)
+Started DELETE "/companies/167/jobs/110" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#destroy as HTML
+  Parameters: {"company_id"=>"167", "id"=>"110"}
+  [1m[35mJob Load (0.2ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 110]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 167]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "jobs" WHERE "jobs"."id" = $1[0m  [["id", 110]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/companies/167/jobs
+Completed 302 Found in 2ms (ActiveRecord: 0.6ms)
+Started GET "/companies/167/jobs" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#index as HTML
+  Parameters: {"company_id"=>"167"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 167]]
+  [1m[35mJob Load (0.3ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 167]]
+  Rendered jobs/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCompany Exists (0.2ms)[0m  SELECT  1 AS one FROM "companies" WHERE "companies"."name" = 'The Guardian' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guardian"], ["city", "London"], ["created_at", "2016-10-21 16:31:47.618985"], ["updated_at", "2016-10-21 16:31:47.618985"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/companies/168/jobs/new" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#new as HTML
+  Parameters: {"company_id"=>"168"}
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 168]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered jobs/_form.html.erb (1.9ms)
+  Rendered jobs/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.3ms)
+Started POST "/companies/168/jobs" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#create as HTML
+  Parameters: {"utf8"=>"✓", "job"=>{"title"=>"Developer", "description"=>"The best!", "level_of_interest"=>"80"}, "commit"=>"Create Job", "company_id"=>"168"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 168]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "jobs" ("title", "description", "level_of_interest", "company_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Developer"], ["description", "The best!"], ["level_of_interest", 80], ["company_id", 168], ["created_at", "2016-10-21 16:31:47.634449"], ["updated_at", "2016-10-21 16:31:47.634449"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/companies/168/jobs/111
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms)
+Started GET "/companies/168/jobs/111" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"168", "id"=>"111"}
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1[0m  [["id", 111]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 168]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 168]]
+  Rendered jobs/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.4ms)
+Started GET "/companies/168/jobs/111/edit" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#edit as HTML
+  Parameters: {"company_id"=>"168", "id"=>"111"}
+  [1m[35mJob Load (0.2ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 111]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 168]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered jobs/_form.html.erb (3.5ms)
+  Rendered jobs/edit.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 9ms (Views: 7.0ms | ActiveRecord: 0.4ms)
+Started PATCH "/companies/168/jobs/111" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#update as HTML
+  Parameters: {"utf8"=>"✓", "job"=>{"title"=>"Journalist", "description"=>"Another option!", "level_of_interest"=>"80"}, "commit"=>"Update Job", "company_id"=>"168", "id"=>"111"}
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1[0m  [["id", 111]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 168]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "jobs" SET "title" = $1, "description" = $2, "updated_at" = $3 WHERE "jobs"."id" = $4[0m  [["title", "Journalist"], ["description", "Another option!"], ["updated_at", "2016-10-21 16:31:47.663291"], ["id", 111]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/companies/168/jobs/111
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+Started GET "/companies/168/jobs/111" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"168", "id"=>"111"}
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1[0m  [["id", 111]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 168]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 168]]
+  Rendered jobs/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCompany Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "companies" WHERE "companies"."name" = 'ESPN' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "companies" ("name", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "ESPN"], ["city", "LA"], ["created_at", "2016-10-21 16:31:47.681334"], ["updated_at", "2016-10-21 16:31:47.681334"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "jobs" ("title", "level_of_interest", "company_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Developer"], ["level_of_interest", 70], ["company_id", 169], ["created_at", "2016-10-21 16:31:47.683816"], ["updated_at", "2016-10-21 16:31:47.683816"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/companies/169/jobs/112" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"169", "id"=>"112"}
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1[0m  [["id", 112]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 169]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 169]]
+  Rendered jobs/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCompany Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "companies" WHERE "companies"."name" = 'ESPN' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "companies" ("name", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "ESPN"], ["city", "LA"], ["created_at", "2016-10-21 16:31:47.711933"], ["updated_at", "2016-10-21 16:31:47.711933"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "jobs" ("title", "level_of_interest", "company_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Developer"], ["level_of_interest", 70], ["company_id", 170], ["created_at", "2016-10-21 16:31:47.714141"], ["updated_at", "2016-10-21 16:31:47.714141"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "jobs" ("title", "level_of_interest", "company_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "QA Analyst"], ["level_of_interest", 70], ["company_id", 170], ["created_at", "2016-10-21 16:31:47.716012"], ["updated_at", "2016-10-21 16:31:47.716012"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/companies/170" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"170"}
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 170]]
+Redirected to http://www.example.com/companies/170/jobs
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+Started GET "/companies/170/jobs" for 127.0.0.1 at 2016-10-21 10:31:47 -0600
+Processing by JobsController#index as HTML
+  Parameters: {"company_id"=>"170"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 170]]
+  [1m[35mJob Load (0.2ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 170]]
+  Rendered jobs/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.1ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Entertainment' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Entertainment"], ["created_at", "2016-10-21 16:31:47.736505"], ["updated_at", "2016-10-21 16:31:47.736505"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Entertainment' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Entertainment' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCompany Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "companies" WHERE "companies"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCompany Exists (0.2ms)[0m  SELECT  1 AS one FROM "companies" WHERE "companies"."name" = 'Ericsson' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCompany Exists (0.2ms)[0m  SELECT  1 AS one FROM "companies" WHERE "companies"."name" = 'Dropbox' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "companies" ("name", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Dropbox"], ["city", "Denver"], ["created_at", "2016-10-21 16:31:47.780436"], ["updated_at", "2016-10-21 16:31:47.780436"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mCompany Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "companies" WHERE "companies"."name" = 'Dropbox' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCompany Exists (0.2ms)[0m  SELECT  1 AS one FROM "companies" WHERE "companies"."name" = 'Dropbox' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
