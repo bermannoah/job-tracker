@@ -8,6 +8,7 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new()
+    @category_options = Category.all.map{ |c| [c.title, c.id ]}
   end
 
   def create
@@ -20,14 +21,15 @@ class JobsController < ApplicationController
     end
   end
 
-  def show
-    @job = Job.find(params[:id])
+  def show    
   end
 
   def edit
+    @category_options = Category.all.map{ |c| [c.title, c.id ]}
   end
 
   def update
+    @category_options = Category.all.map{ |c| [c.title, c.id ]}
     if @job.update(job_params)
       redirect_to company_job_path(@company, @job.id)
     else
@@ -51,6 +53,6 @@ class JobsController < ApplicationController
   end
 
   def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest)
+    params.require(:job).permit(:title, :description, :level_of_interest, :category_id)
   end
 end

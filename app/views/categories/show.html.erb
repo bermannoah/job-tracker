@@ -1,0 +1,9 @@
+Title: <%= @category.title %>
+
+<ul>
+<% @jobs.each do |job| %>
+  <li><%= link_to job.title, company_job_path(job.company_id, job) %></li>
+<% end %>
+</ul>
+
+<%= link_to "New Category", new_category_path %>
