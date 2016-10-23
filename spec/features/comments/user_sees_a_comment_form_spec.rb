@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "User sees a comment form" do
-  scenario "a user sees a comment form for a specific company" do
+  scenario "a user sees a comment form for a specific job" do
     company = Company.create(name: "ESPN", city: "LA")
     job = company.jobs.create(title: "Developer", level_of_interest: 70)
 
