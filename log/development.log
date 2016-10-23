@@ -18466,3 +18466,447 @@ Processing by JobsController#show as HTML
 Completed 200 OK in 109ms (Views: 71.0ms | ActiveRecord: 8.8ms)
   [1m[36mJob Load (0.6ms)[0m  [1mSELECT  "jobs".* FROM "jobs"  ORDER BY "jobs"."id" ASC LIMIT 1[0m
   [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 1]]
+
+
+Started GET "/companies" for ::1 at 2016-10-23 16:17:08 -0600
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 20ms (Views: 15.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/companies/4/edit" for ::1 at 2016-10-23 16:17:26 -0600
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered companies/_form.html.erb (2.0ms)
+  Rendered companies/edit.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/companies/4" for ::1 at 2016-10-23 16:17:29 -0600
+Processing by CompaniesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Mg/QJ/bMm85aNCeyIetisaUB0Wat9Y1QpZvtwqBthazYPxrscJJpzGo+Pb7Lu42lhfv43WDbr3Lx5KyfZx8eeg==", "company"=>{"name"=>"Denver Public Schools", "city"=>"Denver"}, "commit"=>"Update Company", "id"=>"4"}
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCompany Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "companies" WHERE ("companies"."name" = 'Denver Public Schools' AND "companies"."id" != 4) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "companies" SET "city" = $1, "updated_at" = $2 WHERE "companies"."id" = $3  [["city", "Denver"], ["updated_at", "2016-10-23 22:17:29.216230"], ["id", 4]]
+  [1m[36m (6.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCompany Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "companies" WHERE ("companies"."name" = 'Denver Public Schools' AND "companies"."id" != 4) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/companies/4
+Completed 302 Found in 20ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/companies/4" for ::1 at 2016-10-23 16:17:29 -0600
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", "4"]]
+Redirected to http://localhost:3000/companies/4/jobs
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/companies/4/jobs" for ::1 at 2016-10-23 16:17:29 -0600
+Processing by JobsController#index as HTML
+  Parameters: {"company_id"=>"4"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mJob Load (0.2ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 4]]
+  [1m[36mContact Load (0.2ms)[0m  [1mSELECT "contacts".* FROM "contacts" WHERE "contacts"."company_id" = $1  ORDER BY created_at DESC[0m  [["company_id", 4]]
+  Rendered jobs/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 32ms (Views: 20.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/companies/4/jobs/38" for ::1 at 2016-10-23 16:17:38 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"4", "id"=>"38"}
+  [1m[35mJob Load (0.2ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 38]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."job_id" = $1  ORDER BY created_at DESC[0m  [["job_id", 38]]
+  Rendered jobs/show.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 30ms (Views: 21.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/companies/4/jobs/38/edit" for ::1 at 2016-10-23 16:17:40 -0600
+Processing by JobsController#edit as HTML
+  Parameters: {"company_id"=>"4", "id"=>"38"}
+  [1m[35mJob Load (0.2ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 38]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered jobs/_form.html.erb (7.5ms)
+  Rendered jobs/edit.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 29ms (Views: 22.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/companies/4/edit" for ::1 at 2016-10-23 16:17:44 -0600
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered companies/_form.html.erb (1.3ms)
+  Rendered companies/edit.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/companies" for ::1 at 2016-10-23 16:17:47 -0600
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/companies/4/edit" for ::1 at 2016-10-23 16:17:47 -0600
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered companies/_form.html.erb (1.9ms)
+  Rendered companies/edit.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 21ms (Views: 20.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-c4991312985bccd133f1f21ab2f6a5d0129a8416a91037313b14f05d7d2e7dde.css?body=1" for ::1 at 2016-10-23 16:17:47 -0600
+
+
+Started GET "/assets/pure.self-9f0ba560ae18d1739f373e2afec66c794b41a64b84ff311a05b55b54c9219f5b.css?body=1" for ::1 at 2016-10-23 16:17:47 -0600
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-10-23 16:17:47 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-10-23 16:17:47 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-10-23 16:17:47 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-10-23 16:17:47 -0600
+
+
+Started GET "/companies" for ::1 at 2016-10-23 16:18:03 -0600
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (2.0ms)[0m  SELECT "companies".* FROM "companies"  ORDER BY "companies"."location" ASC
+  Rendered companies/index.html.erb within layouts/application (4.3ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 2.0ms)
+
+ActionView::Template::Error (PG::UndefinedColumn: ERROR:  column companies.location does not exist
+LINE 1: SELECT "companies".* FROM "companies"  ORDER BY "companies"....
+                                                        ^
+: SELECT "companies".* FROM "companies"  ORDER BY "companies"."location" ASC):
+    1: <h3>All Companies</h3>
+    2: 
+    3: <% @companies.each do |company| %>
+    4:   <ul class=company_<%= company.id %>>
+    5:     <%= link_to company.name, company_path(company) %> - <%= company.city %><br>
+    6:     <%= link_to "Edit", edit_company_path(company) %>
+  app/views/companies/index.html.erb:3:in `_app_views_companies_index_html_erb__965294934207075022_70171358904100'
+
+
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.6ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (54.6ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (34.2ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (77.6ms)
+
+
+Started GET "/companies/4/edit" for ::1 at 2016-10-23 16:18:03 -0600
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered companies/_form.html.erb (1.6ms)
+  Rendered companies/edit.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 20ms (Views: 14.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/companies" for ::1 at 2016-10-23 16:18:12 -0600
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies"  ORDER BY "companies"."city" ASC
+  Rendered companies/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 22ms (Views: 16.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/companies/4/edit" for ::1 at 2016-10-23 16:18:12 -0600
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered companies/_form.html.erb (2.8ms)
+  Rendered companies/edit.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 21ms (Views: 20.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-c4991312985bccd133f1f21ab2f6a5d0129a8416a91037313b14f05d7d2e7dde.css?body=1" for ::1 at 2016-10-23 16:18:12 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-10-23 16:18:12 -0600
+
+
+Started GET "/assets/pure.self-9f0ba560ae18d1739f373e2afec66c794b41a64b84ff311a05b55b54c9219f5b.css?body=1" for ::1 at 2016-10-23 16:18:12 -0600
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-10-23 16:18:12 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-10-23 16:18:12 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-10-23 16:18:12 -0600
+
+
+Started GET "/companies" for ::1 at 2016-10-23 16:18:59 -0600
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies"  ORDER BY "companies"."city" ASC
+  Rendered companies/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 22ms (Views: 17.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/companies/4/edit" for ::1 at 2016-10-23 16:18:59 -0600
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered companies/_form.html.erb (1.5ms)
+  Rendered companies/edit.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 37ms (Views: 36.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-c4991312985bccd133f1f21ab2f6a5d0129a8416a91037313b14f05d7d2e7dde.css?body=1" for ::1 at 2016-10-23 16:18:59 -0600
+
+
+Started GET "/assets/pure.self-9f0ba560ae18d1739f373e2afec66c794b41a64b84ff311a05b55b54c9219f5b.css?body=1" for ::1 at 2016-10-23 16:18:59 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-10-23 16:18:59 -0600
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-10-23 16:18:59 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-10-23 16:18:59 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-10-23 16:18:59 -0600
+
+
+Started GET "/companies?sort=location" for ::1 at 2016-10-23 16:19:14 -0600
+Processing by CompaniesController#index as HTML
+  Parameters: {"sort"=>"location"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+ActionView::MissingTemplate (Missing template companies/city, application/city with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/noah/turing/mod2/job-tracker/app/views"
+):
+  app/controllers/companies_controller.rb:7:in `index'
+
+
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.2ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (44.1ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (40.6ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (92.9ms)
+
+
+Started GET "/companies?sort=location" for ::1 at 2016-10-23 16:19:42 -0600
+Processing by CompaniesController#index as HTML
+  Parameters: {"sort"=>"location"}
+  Rendered companies/city.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-c4991312985bccd133f1f21ab2f6a5d0129a8416a91037313b14f05d7d2e7dde.css?body=1" for ::1 at 2016-10-23 16:19:42 -0600
+
+
+Started GET "/assets/pure.self-9f0ba560ae18d1739f373e2afec66c794b41a64b84ff311a05b55b54c9219f5b.css?body=1" for ::1 at 2016-10-23 16:19:42 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-10-23 16:19:42 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-10-23 16:19:42 -0600
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-10-23 16:19:42 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-10-23 16:19:42 -0600
+
+
+Started GET "/companies?sort=location" for ::1 at 2016-10-23 16:21:21 -0600
+Processing by CompaniesController#index as HTML
+  Parameters: {"sort"=>"location"}
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies"  ORDER BY "companies"."city" ASC
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 1]]
+  [1m[35mJob Load (0.2ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 2]]
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 3]]
+  [1m[35mJob Load (0.1ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 4]]
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 7]]
+  [1m[35mJob Load (0.2ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 8]]
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 6]]
+  [1m[35mJob Load (0.1ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 5]]
+  Rendered companies/city.html.erb within layouts/application (21.4ms)
+Completed 200 OK in 36ms (Views: 33.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/application.self-c4991312985bccd133f1f21ab2f6a5d0129a8416a91037313b14f05d7d2e7dde.css?body=1" for ::1 at 2016-10-23 16:21:21 -0600
+
+
+Started GET "/assets/pure.self-9f0ba560ae18d1739f373e2afec66c794b41a64b84ff311a05b55b54c9219f5b.css?body=1" for ::1 at 2016-10-23 16:21:21 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-10-23 16:21:21 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-10-23 16:21:21 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-10-23 16:21:21 -0600
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-10-23 16:21:21 -0600
+
+
+Started GET "/companies/1/jobs/5" for ::1 at 2016-10-23 16:21:32 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"1", "id"=>"5"}
+  [1m[36mJob Load (0.3ms)[0m  [1mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."job_id" = $1  ORDER BY created_at DESC  [["job_id", 5]]
+  Rendered jobs/show.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 25ms (Views: 16.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/companies?sort=location" for ::1 at 2016-10-23 16:21:56 -0600
+Processing by CompaniesController#index as HTML
+  Parameters: {"sort"=>"location"}
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies"  ORDER BY "companies"."city" ASC[0m
+  [1m[35mJob Load (0.1ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 1]]
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 2]]
+  [1m[35mJob Load (0.1ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 3]]
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 4]]
+  [1m[35mJob Load (0.1ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 7]]
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 8]]
+  [1m[35mJob Load (0.1ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 6]]
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 5]]
+  Rendered companies/city.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 22ms (Views: 20.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/companies/1/jobs/5" for ::1 at 2016-10-23 16:21:56 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"1", "id"=>"5"}
+  [1m[35mJob Load (0.3ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCompany Load (2.8ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mComment Load (1.4ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."job_id" = $1  ORDER BY created_at DESC[0m  [["job_id", 5]]
+  Rendered jobs/show.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 27ms (Views: 21.2ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/assets/application.self-c4991312985bccd133f1f21ab2f6a5d0129a8416a91037313b14f05d7d2e7dde.css?body=1" for ::1 at 2016-10-23 16:21:56 -0600
+
+
+Started GET "/assets/pure.self-9f0ba560ae18d1739f373e2afec66c794b41a64b84ff311a05b55b54c9219f5b.css?body=1" for ::1 at 2016-10-23 16:21:56 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-10-23 16:21:56 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-10-23 16:21:56 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-10-23 16:21:56 -0600
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-10-23 16:21:56 -0600
+
+
+Started GET "/companies/5/jobs/48" for ::1 at 2016-10-23 16:22:10 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"5", "id"=>"48"}
+  [1m[35mJob Load (0.2ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 48]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."job_id" = $1  ORDER BY created_at DESC[0m  [["job_id", 48]]
+  Rendered jobs/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 15ms (Views: 12.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/companies?sort=location" for ::1 at 2016-10-23 16:22:24 -0600
+Processing by CompaniesController#index as HTML
+  Parameters: {"sort"=>"location"}
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies"  ORDER BY "companies"."city" ASC
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 1]]
+  [1m[35mJob Load (0.2ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 2]]
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 3]]
+  [1m[35mJob Load (0.1ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 4]]
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 7]]
+  [1m[35mJob Load (0.1ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 8]]
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 6]]
+  [1m[35mJob Load (0.1ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 5]]
+  Rendered companies/city.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application.self-c4991312985bccd133f1f21ab2f6a5d0129a8416a91037313b14f05d7d2e7dde.css?body=1" for ::1 at 2016-10-23 16:22:24 -0600
+
+
+Started GET "/assets/pure.self-9f0ba560ae18d1739f373e2afec66c794b41a64b84ff311a05b55b54c9219f5b.css?body=1" for ::1 at 2016-10-23 16:22:24 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-10-23 16:22:24 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-10-23 16:22:24 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-10-23 16:22:24 -0600
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-10-23 16:22:24 -0600
+
+
+Started GET "/companies?sort=location" for ::1 at 2016-10-23 16:22:38 -0600
+Processing by CompaniesController#index as HTML
+  Parameters: {"sort"=>"location"}
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies"  ORDER BY "companies"."city" ASC[0m
+  [1m[35mJob Load (0.1ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 1]]
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 2]]
+  [1m[35mJob Load (0.1ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 3]]
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 4]]
+  [1m[35mJob Load (0.2ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 7]]
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 8]]
+  [1m[35mJob Load (0.1ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 6]]
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 5]]
+  Rendered companies/city.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 26ms (Views: 23.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.self-c4991312985bccd133f1f21ab2f6a5d0129a8416a91037313b14f05d7d2e7dde.css?body=1" for ::1 at 2016-10-23 16:22:38 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-10-23 16:22:38 -0600
+
+
+Started GET "/assets/pure.self-9f0ba560ae18d1739f373e2afec66c794b41a64b84ff311a05b55b54c9219f5b.css?body=1" for ::1 at 2016-10-23 16:22:38 -0600
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-10-23 16:22:38 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-10-23 16:22:38 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-10-23 16:22:38 -0600

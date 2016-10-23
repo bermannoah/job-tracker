@@ -2,7 +2,10 @@ class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
   
   def index
-    @companies = Company.all
+    @companies = Company.all.order(:city)
+    if params.include?("sort")
+      render :city
+    end
   end
 
   def new
