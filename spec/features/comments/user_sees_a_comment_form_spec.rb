@@ -10,6 +10,6 @@ describe "User sees a comment form" do
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")
     expect(page).to have_content("70")
-    expect(page).to 
+    find_field("comment_content")
   end
 end

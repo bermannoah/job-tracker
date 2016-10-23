@@ -22,8 +22,10 @@ Category: <%= link_to @job.category.title, category_path(@job.category) if @job.
             <% end %>
             
 Comments:
+<ul>
 <% if @comments %>
 <% @comments.each do |comment| %>
-  <p><%= comment.content %></p>
+  <li><%= comment.content %></li>
 <% end %>
 <% end %>
+</ul>

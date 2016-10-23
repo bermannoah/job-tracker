@@ -14210,3 +14210,112 @@ Processing by JobsController#show as HTML
   [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."job_id" = $1  [["job_id", 37]]
   Rendered jobs/show.html.erb within layouts/application (2.1ms)
 Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/companies/4/jobs/37" for ::1 at 2016-10-23 12:29:40 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"4", "id"=>"37"}
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1[0m  [["id", 37]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."job_id" = $1  ORDER BY created_at DESC  [["job_id", 37]]
+  Rendered jobs/show.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 42ms (Views: 23.8ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-10-23 12:29:41 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-10-23 12:29:41 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-10-23 12:29:41 -0600
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-10-23 12:29:41 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-10-23 12:29:41 -0600
+
+
+Started POST "/comments" for ::1 at 2016-10-23 12:29:49 -0600
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gtcf4xz0SRuSImb0vqaBbDAg585HD4ZRuLb/N62W4yBo59Uomqq7GaIofPhU9m54ENrOdYohpHPsyb5qauR49g==", "comment"=>{"content"=>"this is the most recent comment"}, "job"=>{"id"=>"37"}, "commit"=>"Create Comment"}
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1[0m  [["id", 37]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("content", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "this is the most recent comment"], ["job_id", 37], ["created_at", "2016-10-23 18:29:49.104844"], ["updated_at", "2016-10-23 18:29:49.104844"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/companies/4/jobs/37
+Completed 302 Found in 5ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/companies/4/jobs/37" for ::1 at 2016-10-23 12:29:49 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"4", "id"=>"37"}
+  [1m[35mJob Load (0.1ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 37]]
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."job_id" = $1  ORDER BY created_at DESC[0m  [["job_id", 37]]
+  Rendered jobs/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 23ms (Views: 18.9ms | ActiveRecord: 1.0ms)
+  [1m[36m (116.5ms)[0m  [1mDROP DATABASE IF EXISTS "job-tracker_test"[0m
+  [1m[35m (358.5ms)[0m  CREATE DATABASE "job-tracker_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (5.1ms)[0m  CREATE TABLE "categories" ("id" serial primary key, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "job_id" integer) 
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_categories_on_job_id" ON "categories" USING btree ("job_id")[0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "comments" ("id" serial primary key, "content" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "job_id" integer) 
+  [1m[36m (1.1ms)[0m  [1mCREATE  INDEX  "index_comments_on_job_id" ON "comments" USING btree ("job_id")[0m
+  [1m[35m (2.8ms)[0m  CREATE TABLE "companies" ("id" serial primary key, "name" character varying, "city" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "jobs" ("id" serial primary key, "title" character varying, "description" character varying, "level_of_interest" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "company_id" integer, "category_id" integer) [0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_jobs_on_category_id" ON "jobs" USING btree ("category_id")
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_jobs_on_company_id" ON "jobs" USING btree ("company_id")[0m
+  [1m[35m (1.4ms)[0m  ALTER TABLE "comments" ADD CONSTRAINT "fk_rails_b446a12bbc"
+FOREIGN KEY ("job_id")
+  REFERENCES "jobs" ("id")
+
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "jobs" ADD CONSTRAINT "fk_rails_1cf0b3b406"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "jobs" ADD CONSTRAINT "fk_rails_b34da78090"
+FOREIGN KEY ("company_id")
+  REFERENCES "companies" ("id")
+
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20161021164210')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20161017110514')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20161017110520')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20161017195715')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20161020205110')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20161020205330')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20161020224821')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20161020230927')[0m
+
+
+Started GET "/companies/4/jobs/37" for ::1 at 2016-10-23 12:34:47 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"4", "id"=>"37"}
+  [1m[35mJob Load (0.3ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 37]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."job_id" = $1  ORDER BY created_at DESC[0m  [["job_id", 37]]
+  Rendered jobs/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 14ms (Views: 11.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-10-23 12:34:47 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-10-23 12:34:47 -0600
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-10-23 12:34:47 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-10-23 12:34:47 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-10-23 12:34:47 -0600
