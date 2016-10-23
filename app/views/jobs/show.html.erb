@@ -13,3 +13,19 @@ Category: <%= link_to @job.category.title, category_path(@job.category) if @job.
 
 <%= link_to "Edit", edit_company_job_path %>
 <%= link_to "Delete", company_job_path(@company, @job), method: :delete %>
+  
+<%= form_for @comment do |f| %>
+              <%= f.label :comment %>
+              <%= f.text_field :content %>
+              <%= hidden_field(:job, :id) %>
+              <%= f.submit %>
+            <% end %>
+            
+Comments:
+<ul>
+<% if @comments %>
+<% @comments.each do |comment| %>
+  <li><%= comment.content %></li>
+<% end %>
+<% end %>
+</ul>
