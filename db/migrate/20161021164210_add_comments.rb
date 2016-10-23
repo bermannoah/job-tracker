@@ -6,6 +6,6 @@ class AddComments < ActiveRecord::Migration
       t.timestamps null: false
     end
     
-    add_reference :jobs, :comment, index: true, foreign_key: true
+    add_reference :comments, :job, index: true, foreign_key: true
   end
 end
