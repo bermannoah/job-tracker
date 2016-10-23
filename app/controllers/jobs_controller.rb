@@ -4,6 +4,8 @@ class JobsController < ApplicationController
 
   def index
     @jobs = @company.jobs
+    @contact = Contact.new
+    @contacts = @company.contacts.all.order('created_at DESC')
   end
 
   def new
