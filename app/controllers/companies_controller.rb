@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+  before_action :set_company, only: [:show, :edit, :update, :destroy]
+  
   def index
     @companies = Company.all
   end
@@ -20,14 +22,14 @@ class CompaniesController < ApplicationController
   def show
     company = Company.find(params[:id])
     redirect_to company_jobs_path(company)
+    @contact = Contact.new
+    @contacts = company.contacts.all.order('created_at DESC')
   end
 
   def edit
-    @company = Company.find(params[:id])
   end
 
   def update
-    @company = Company.find(params[:id])
     @company.update(company_params)
     if @company.save
       flash[:success] = "#{@company.name} updated!"
@@ -47,6 +49,10 @@ class CompaniesController < ApplicationController
 
 
   private
+
+  def set_company
+    @company = Company.find(params[:id])
+  end
 
   def company_params
     params.require(:company).permit(:name, :city)
