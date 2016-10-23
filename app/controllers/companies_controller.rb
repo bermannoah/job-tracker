@@ -6,6 +6,10 @@ class CompaniesController < ApplicationController
     if params.include?("sort")
       render :city
     end
+    if params.include?("location")
+      @companies = Company.where(city: params["location"])
+      render :location
+    end
   end
 
   def new
