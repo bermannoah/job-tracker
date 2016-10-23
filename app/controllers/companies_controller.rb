@@ -8,6 +8,7 @@ class CompaniesController < ApplicationController
     end
     if params.include?("location")
       @companies = Company.where(city: params["location"])
+      job_by_location(@companies)
       render :location
     end
   end
@@ -61,5 +62,13 @@ class CompaniesController < ApplicationController
 
   def company_params
     params.require(:company).permit(:name, :city)
+  end
+  
+  def job_by_location(companies)
+    @jobs_number = 0
+    companies.each do |company|
+      @jobs_number += Job.where(company_id: company.id).count
+    end
+    @jobs_number
   end
 end
