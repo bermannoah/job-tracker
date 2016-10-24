@@ -11,6 +11,7 @@
   <div class="field">
   <%= f.label :category %>
   <%= f.select(:category_id, @category_options)  %>
+  <%= link_to "Create New Category", new_category_path %>
   </div>
   
   <%= f.submit %>

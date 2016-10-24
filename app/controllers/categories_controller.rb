@@ -37,9 +37,6 @@ class CategoriesController < ApplicationController
     @category.delete
     redirect_to categories_path
   end
-  
-  
-
 
   private
   

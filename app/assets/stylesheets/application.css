@@ -1,8 +1,11 @@
 body {
-  background-image: url('bg_image.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   padding-top: 5em;
+}
+
+.job-form {
+  margin: 10px;
 }

@@ -12,4 +12,16 @@ class Company < ActiveRecord::Base
     pluck(:name, "AVG(jobs.level_of_interest)")
   end
   
+  def self.jobs_by_level_of_interest(jobs)
+    levels = []
+    counts = Hash.new(0)
+    jobs.each do |job|
+      levels << job.level_of_interest
+    end
+    levels.each do |level|
+      counts[level] += 1
+    end
+    counts.sort.reverse
+  end
+  
 end
