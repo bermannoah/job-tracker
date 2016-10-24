@@ -7,4 +7,4 @@ A Rails backend storing data in PostgreSQL and using Bootstrap for initial styli
 
 ![Image of the home screen](https://github.com/bermannoah/job-tracker/blob/master/jt.jpg)
 
-
+(Sample data ^ ) 
