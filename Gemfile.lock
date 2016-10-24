@@ -89,6 +89,7 @@ GEM
     nyan-cat-formatter (0.11)
       rspec (>= 2.99, >= 2.14.2, < 4)
     pg (0.19.0)
+    pure-css-rails (0.6.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -111,6 +112,7 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails-pry (0.0.1)
     railties (4.2.6)
       actionpack (= 4.2.6)
       activesupport (= 4.2.6)
@@ -189,7 +191,9 @@ DEPENDENCIES
   launchy
   nyan-cat-formatter
   pg (~> 0.15)
+  pure-css-rails
   rails (= 4.2.6)
+  rails-pry
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
@@ -199,4 +203,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.13.5
+   1.13.6

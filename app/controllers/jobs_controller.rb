@@ -1,11 +1,17 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-  before_action :set_company
+  before_action :set_company, only: [:new, :create, :show, :edit, :update, :destroy]
 
   def index
-    @jobs = @company.jobs
-    @contact = Contact.new
-    @contacts = @company.contacts.all.order('created_at DESC')
+    if params.include?("sort")
+      @jobs = Job.all.order(:level_of_interest).reverse
+      render :interest
+    else
+      @company = Company.find(params[:company_id])
+      @jobs = @company.jobs
+      @contact = Contact.new
+      @contacts = @company.contacts.all.order('created_at DESC')
+    end
   end
 
   def new

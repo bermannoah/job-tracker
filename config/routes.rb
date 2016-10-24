@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   resources :jobs
   resources :comments
   resources :contacts
-
-  
+  resources :dashboard, only: [:index]
+    
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,29 @@
+<h1>Dashboard</h1>
+
+Jobs by interest level breakdown:  
+  <table>
+    <tr>
+      <th>Interest Level</th>
+      <th>Number of Jobs</th>
+    </tr>
+    <% @jobs_by_level_of_interest_count.each do |level, count| %>
+    <tr>
+        <td><%= level %></td>
+        <td><%= count %></td>
+    </tr>
+      <% end %>
+  </table>
+
+Top Three Companies by Interest Level Average
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Average Interest Level</th>
+  </tr>
+  <% @level_of_interest_finder.each do |company| %>
+  <tr>
+      <td><%= company[0] %></td>
+      <td><%= company[1] %></td>
+  </tr>
+    <% end %>
+</table>

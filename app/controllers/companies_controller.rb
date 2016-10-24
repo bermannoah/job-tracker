@@ -2,7 +2,15 @@ class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
   
   def index
-    @companies = Company.all
+    @companies = Company.all.order(:city)
+    if params.include?("sort")
+      render :city
+    end
+    if params.include?("location")
+      @companies = Company.where(city: params["location"])
+      job_by_location(@companies)
+      render :location
+    end
   end
 
   def new
@@ -54,5 +62,13 @@ class CompaniesController < ApplicationController
 
   def company_params
     params.require(:company).permit(:name, :city)
+  end
+  
+  def job_by_location(companies)
+    @jobs_number = 0
+    companies.each do |company|
+      @jobs_number += Job.where(company_id: company.id).count
+    end
+    @jobs_number
   end
 end
