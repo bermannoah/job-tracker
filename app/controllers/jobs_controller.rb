@@ -20,10 +20,9 @@ class JobsController < ApplicationController
   end
 
   def create
-    @job = @company.jobs.new(job_params)
     @category_options = Category.all.map{ |c| [c.title, c.id ]}
+    @job = @company.jobs.new(job_params) 
     if @job.save
-      flash[:success] = "You created #{@job.title} at #{@company.name}"
       redirect_to company_job_path(@company, @job)
     else
       render :new

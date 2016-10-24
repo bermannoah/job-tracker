@@ -1,4 +1,5 @@
 <%= form_for [@company, @job] do |f| %>
+
   <%= f.label :title %>
   <%= f.text_field :title %>
 
@@ -8,13 +9,11 @@
   <%= f.label :level_of_interest %>
   <%= f.number_field :level_of_interest %>
   
-
-  <%= f.label :category %>
-  <%= f.select(:category_id, @category_options)  %>
-    
-  <%= f.label :tag_list %><br />
-  <%= f.text_field :tag_list %>
-
+  <div class="field">
+    <%= f.label :category %>
+    <%= f.select(:category_id, @category_options) %>
+  </div>
+  
   <%= f.submit %>
 
 <% end %>
