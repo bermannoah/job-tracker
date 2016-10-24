@@ -1,19 +1,23 @@
 class TagsController < ApplicationController
-  before_action :set_tag
+  before_action :set_tag, only: [:show, :edit, :update, :destroy]
 
   def index
     @tags = Tag.all
   end
   
   def new
-    @tag = Tag.new  
+    @tag = Tag.new
+  end  
     
   def create
     @tag = Tag.new(tag_params)
+    if @tag.save
+      redirect_to tags_path
+    end
   end
   
   def show
-    @jobs = Job.find(params[:tag_id])
+    @tag = Tag.find(params[:id])
   end
   
   def edit
@@ -42,7 +46,7 @@ class TagsController < ApplicationController
   end
   
   def tag_params
-    params.require(:comment).permit(:name)
+    params.require(:tag).permit(:name)
   end
   
 end
