@@ -23180,3 +23180,687 @@ DETAIL:  Key (id)=(11) is still referenced from table "taggings".
   Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
   Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
   Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (84.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateTaggings (20161024004829)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.5ms)[0m  DROP TABLE "taggings"
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20161024004829"]]
+  [1m[35m (7.7ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'comments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'companies'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'contacts'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'jobs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tags'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateTaggings (20161024004829)
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (8.2ms)[0m  CREATE TABLE "taggings" ("id" serial primary key, "tag_id" integer, "job_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (7.2ms)[0m  [1mCREATE  INDEX  "index_taggings_on_tag_id" ON "taggings"  ("tag_id")[0m
+  [1m[35m (5.9ms)[0m  CREATE  INDEX  "index_taggings_on_job_id" ON "taggings"  ("job_id")
+  [1m[36m (1.9ms)[0m  [1mALTER TABLE "taggings" ADD CONSTRAINT "fk_rails_9fcd2e236b"
+FOREIGN KEY ("tag_id")
+  REFERENCES "tags" ("id")
+[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "taggings" ADD CONSTRAINT "fk_rails_bd2d918ef7"
+FOREIGN KEY ("job_id")
+  REFERENCES "jobs" ("id")
+
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20161024004829"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'comments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'companies'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'contacts'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'jobs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'taggings'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tags'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+
+
+Started GET "/jobs?sort=interest" for ::1 at 2016-10-23 19:18:14 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by JobsController#index as HTML
+  Parameters: {"sort"=>"interest"}
+  [1m[35mJob Load (0.7ms)[0m  SELECT "jobs".* FROM "jobs"  ORDER BY "jobs"."level_of_interest" ASC
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  Rendered jobs/interest.html.erb within layouts/application (41.1ms)
+Completed 200 OK in 67ms (Views: 50.4ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/assets/application.self-c4991312985bccd133f1f21ab2f6a5d0129a8416a91037313b14f05d7d2e7dde.css?body=1" for ::1 at 2016-10-23 19:18:14 -0600
+
+
+Started GET "/assets/pure.self-9f0ba560ae18d1739f373e2afec66c794b41a64b84ff311a05b55b54c9219f5b.css?body=1" for ::1 at 2016-10-23 19:18:14 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-10-23 19:18:14 -0600
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-10-23 19:18:14 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-10-23 19:18:14 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-10-23 19:18:14 -0600
+
+
+Started GET "/companies/6/jobs/58" for ::1 at 2016-10-23 19:18:15 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"6", "id"=>"58"}
+  [1m[35mJob Load (0.3ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 58]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."job_id" = $1  ORDER BY created_at DESC[0m  [["job_id", 58]]
+  [1m[35mTag Load (0.4ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."job_id" = $1  [["job_id", 58]]
+  Rendered jobs/show.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 36ms (Views: 24.5ms | ActiveRecord: 3.2ms)
+
+
+Started DELETE "/companies/6/jobs/58" for ::1 at 2016-10-23 19:18:16 -0600
+Processing by JobsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"gECJZTkLmcayOdGU5aPZdrwKqZK2r9mn4pZjJWX3GjFqcEOuv1VrxIIzy5gP8zZinPCAKXuB+4W26SJ4ooWB5w==", "company_id"=>"6", "id"=>"58"}
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1[0m  [["id", 58]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "jobs" WHERE "jobs"."id" = $1  [["id", 58]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/companies/6/jobs
+Completed 302 Found in 3ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/companies/6/jobs" for ::1 at 2016-10-23 19:18:16 -0600
+Processing by JobsController#index as HTML
+  Parameters: {"company_id"=>"6"}
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mJob Load (0.4ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 6]]
+  [1m[35mContact Load (0.5ms)[0m  SELECT "contacts".* FROM "contacts" WHERE "contacts"."company_id" = $1  ORDER BY created_at DESC  [["company_id", 6]]
+  Rendered jobs/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 25ms (Views: 15.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/companies/6/jobs/51" for ::1 at 2016-10-23 19:18:18 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"6", "id"=>"51"}
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1[0m  [["id", 51]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."job_id" = $1  ORDER BY created_at DESC  [["job_id", 51]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."job_id" = $1[0m  [["job_id", 51]]
+  Rendered jobs/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 16ms (Views: 14.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/companies/6/jobs/51/edit" for ::1 at 2016-10-23 19:18:20 -0600
+Processing by JobsController#edit as HTML
+  Parameters: {"company_id"=>"6", "id"=>"51"}
+  [1m[35mJob Load (0.2ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 51]]
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."job_id" = $1[0m  [["job_id", 51]]
+  Rendered jobs/_form.html.erb (5.2ms)
+  Rendered jobs/edit.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 22ms (Views: 15.9ms | ActiveRecord: 1.8ms)
+
+
+Started PATCH "/companies/6/jobs/51" for ::1 at 2016-10-23 19:18:23 -0600
+Processing by JobsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p85bJ2LVWtKPXbcdI7kbeqRbE5MxYLZ8cijr9TDu75lN/pHs5Iuo0L9XrRHJ6fRuhKE6KPxOlF4mV6qo95x0Tw==", "job"=>{"title"=>"Product Manager", "description"=>"What a great position!", "level_of_interest"=>"29", "category_id"=>"1", "tag_list"=>"taaags"}, "commit"=>"Update Job", "company_id"=>"6", "id"=>"51"}
+  [1m[35mJob Load (0.1ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 51]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTag Load (0.2ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."name" = $1 LIMIT 1  [["name", "taaags"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "taaags"], ["created_at", "2016-10-24 01:18:23.703019"], ["updated_at", "2016-10-24 01:18:23.703019"]]
+  [1m[35mTag Load (0.1ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."job_id" = $1  [["job_id", 51]]
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "taggings" ("job_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["job_id", 51], ["tag_id", 5], ["created_at", "2016-10-24 01:18:23.710412"], ["updated_at", "2016-10-24 01:18:23.710412"]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "jobs" SET "category_id" = $1, "updated_at" = $2 WHERE "jobs"."id" = $3  [["category_id", 1], ["updated_at", "2016-10-24 01:18:23.712459"], ["id", 51]]
+  [1m[36m (5.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/companies/6/jobs/51
+Completed 302 Found in 21ms (ActiveRecord: 7.2ms)
+
+
+Started GET "/companies/6/jobs/51" for ::1 at 2016-10-23 19:18:23 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"6", "id"=>"51"}
+  [1m[35mJob Load (0.1ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 51]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."job_id" = $1  ORDER BY created_at DESC  [["job_id", 51]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."job_id" = $1[0m  [["job_id", 51]]
+  Rendered jobs/show.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/companies/6/jobs/51" for ::1 at 2016-10-23 19:18:24 -0600
+Processing by JobsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"QDyooNLq8IwhM1v/Vk16Xt/aCqtjgwcLX+Ih2nLRxBuqDGJrVLQCjhE5QfO8HZVK/yAjEK6tJSkLnWCHtaNfzQ==", "company_id"=>"6", "id"=>"51"}
+  [1m[35mJob Load (0.1ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 51]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (1.8ms)[0m  [1mDELETE FROM "jobs" WHERE "jobs"."id" = $1[0m  [["id", 51]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 2.1ms)
+
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "jobs" violates foreign key constraint "fk_rails_bd2d918ef7" on table "taggings"
+DETAIL:  Key (id)=(51) is still referenced from table "taggings".
+: DELETE FROM "jobs" WHERE "jobs"."id" = $1):
+  app/controllers/jobs_controller.rb:51:in `destroy'
+
+
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (44.2ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (37.9ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/noah/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (82.8ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to UpdateForeignKeyOnTaggings (20161024012021)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (2.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'taggings'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "taggings" DROP CONSTRAINT "fk_rails_bd2d918ef7"
+  [1m[36m (1.2ms)[0m  [1mALTER TABLE "taggings" ADD CONSTRAINT "fk_rails_bd2d918ef7"
+FOREIGN KEY ("job_id")
+  REFERENCES "jobs" ("id")
+ ON DELETE CASCADE[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20161024012021"]]
+  [1m[36m (6.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'comments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'companies'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'contacts'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'jobs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'taggings'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tags'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36m (118.1ms)[0m  [1mDROP DATABASE IF EXISTS "job-tracker_test"[0m
+  [1m[35m (260.5ms)[0m  CREATE DATABASE "job-tracker_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (4.2ms)[0m  CREATE TABLE "categories" ("id" serial primary key, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "job_id" integer) 
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_categories_on_job_id" ON "categories" USING btree ("job_id")[0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "comments" ("id" serial primary key, "content" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "job_id" integer) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_comments_on_job_id" ON "comments" USING btree ("job_id")[0m
+  [1m[35m (2.6ms)[0m  CREATE TABLE "companies" ("id" serial primary key, "name" character varying, "city" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "contacts" ("id" serial primary key, "name" character varying, "position" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "company_id" integer) [0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_contacts_on_company_id" ON "contacts" USING btree ("company_id")
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "jobs" ("id" serial primary key, "title" character varying, "description" character varying, "level_of_interest" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "company_id" integer, "category_id" integer) [0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_jobs_on_category_id" ON "jobs" USING btree ("category_id")
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_jobs_on_company_id" ON "jobs" USING btree ("company_id")[0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE "taggings" ("id" serial primary key, "tag_id" integer, "job_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_taggings_on_job_id" ON "taggings" USING btree ("job_id")[0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_taggings_on_tag_id" ON "taggings" USING btree ("tag_id")
+  [1m[36m (2.3ms)[0m  [1mCREATE TABLE "tags" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  ALTER TABLE "comments" ADD CONSTRAINT "fk_rails_b446a12bbc"
+FOREIGN KEY ("job_id")
+  REFERENCES "jobs" ("id")
+
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "contacts" ADD CONSTRAINT "fk_rails_42b4583938"
+FOREIGN KEY ("company_id")
+  REFERENCES "companies" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "jobs" ADD CONSTRAINT "fk_rails_1cf0b3b406"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "jobs" ADD CONSTRAINT "fk_rails_b34da78090"
+FOREIGN KEY ("company_id")
+  REFERENCES "companies" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "taggings" ADD CONSTRAINT "fk_rails_bd2d918ef7"
+FOREIGN KEY ("job_id")
+  REFERENCES "jobs" ("id")
+ ON DELETE CASCADE
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "taggings" ADD CONSTRAINT "fk_rails_9fcd2e236b"
+FOREIGN KEY ("tag_id")
+  REFERENCES "tags" ("id")
+[0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20161024012021')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20161017110514')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20161017110520')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20161017195715')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20161020205110')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20161020205330')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20161020224821')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20161020230927')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20161021164210')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20161023185135')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20161024004813')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20161024004829')
+
+
+Started DELETE "/companies/6/jobs/51" for ::1 at 2016-10-23 19:21:27 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by JobsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"QDyooNLq8IwhM1v/Vk16Xt/aCqtjgwcLX+Ih2nLRxBuqDGJrVLQCjhE5QfO8HZVK/yAjEK6tJSkLnWCHtaNfzQ==", "company_id"=>"6", "id"=>"51"}
+  [1m[35mJob Load (0.2ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 51]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "jobs" WHERE "jobs"."id" = $1[0m  [["id", 51]]
+  [1m[35m (0.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/companies/6/jobs
+Completed 302 Found in 17ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/companies/6/jobs" for ::1 at 2016-10-23 19:21:28 -0600
+Processing by JobsController#index as HTML
+  Parameters: {"company_id"=>"6"}
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mJob Load (0.3ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 6]]
+  [1m[36mContact Load (0.2ms)[0m  [1mSELECT "contacts".* FROM "contacts" WHERE "contacts"."company_id" = $1  ORDER BY created_at DESC[0m  [["company_id", 6]]
+  Rendered jobs/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 26ms (Views: 17.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application.self-c4991312985bccd133f1f21ab2f6a5d0129a8416a91037313b14f05d7d2e7dde.css?body=1" for ::1 at 2016-10-23 19:21:28 -0600
+
+
+Started GET "/assets/pure.self-9f0ba560ae18d1739f373e2afec66c794b41a64b84ff311a05b55b54c9219f5b.css?body=1" for ::1 at 2016-10-23 19:21:28 -0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-10-23 19:21:28 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-10-23 19:21:28 -0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-10-23 19:21:28 -0600
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-10-23 19:21:28 -0600
+
+
+Started GET "/companies/6/jobs/55" for ::1 at 2016-10-23 19:21:30 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"6", "id"=>"55"}
+  [1m[35mJob Load (0.2ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 55]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."job_id" = $1  ORDER BY created_at DESC[0m  [["job_id", 55]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."job_id" = $1  [["job_id", 55]]
+  Rendered jobs/show.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 37ms (Views: 26.8ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/companies/6/jobs/55/edit" for ::1 at 2016-10-23 19:21:32 -0600
+Processing by JobsController#edit as HTML
+  Parameters: {"company_id"=>"6", "id"=>"55"}
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1[0m  [["id", 55]]
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."job_id" = $1  [["job_id", 55]]
+  Rendered jobs/_form.html.erb (4.8ms)
+  Rendered jobs/edit.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 26ms (Views: 19.6ms | ActiveRecord: 1.6ms)
+
+
+Started PATCH "/companies/6/jobs/55" for ::1 at 2016-10-23 19:21:36 -0600
+Processing by JobsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nZlReLKzpALjKzEV/Nq1WWTbFCvH/8mBYR2sLZntleV3qZuzNO1WANMhKxkWilpNRCE9kArR66M1Yu1wXp8OMw==", "job"=>{"title"=>"Product Manager", "description"=>"What a great position!", "level_of_interest"=>"59", "category_id"=>"1", "tag_list"=>"hello"}, "commit"=>"Update Job", "company_id"=>"6", "id"=>"55"}
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1[0m  [["id", 55]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = $1 LIMIT 1[0m  [["name", "hello"]]
+  [1m[35mTag Load (0.1ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."job_id" = $1  [["job_id", 55]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "taggings" ("job_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["job_id", 55], ["tag_id", 3], ["created_at", "2016-10-24 01:21:36.013132"], ["updated_at", "2016-10-24 01:21:36.013132"]]
+  [1m[35mSQL (0.2ms)[0m  UPDATE "jobs" SET "category_id" = $1, "updated_at" = $2 WHERE "jobs"."id" = $3  [["category_id", 1], ["updated_at", "2016-10-24 01:21:36.014512"], ["id", 55]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/companies/6/jobs/55
+Completed 302 Found in 13ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/companies/6/jobs/55" for ::1 at 2016-10-23 19:21:36 -0600
+Processing by JobsController#show as HTML
+  Parameters: {"company_id"=>"6", "id"=>"55"}
+  [1m[35mJob Load (0.1ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 55]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."job_id" = $1  ORDER BY created_at DESC  [["job_id", 55]]
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."job_id" = $1[0m  [["job_id", 55]]
+  Rendered jobs/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 19ms (Views: 16.9ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/companies/6/jobs/55" for ::1 at 2016-10-23 19:21:37 -0600
+Processing by JobsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bZu/mfmWVnAsk6sqAF1Y5g/X1ZijkbxbcpJGF5AyhYKHq3VSf8ikchyZsSbqDbfyLy38I26/nnkm7QdKV0AeVA==", "company_id"=>"6", "id"=>"55"}
+  [1m[35mJob Load (0.1ms)[0m  SELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT 1  [["id", 55]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "jobs" WHERE "jobs"."id" = $1[0m  [["id", 55]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/companies/6/jobs
+Completed 302 Found in 4ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/companies/6/jobs" for ::1 at 2016-10-23 19:21:37 -0600
+Processing by JobsController#index as HTML
+  Parameters: {"company_id"=>"6"}
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mJob Load (0.2ms)[0m  SELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1  [["company_id", 6]]
+  [1m[36mContact Load (0.2ms)[0m  [1mSELECT "contacts".* FROM "contacts" WHERE "contacts"."company_id" = $1  ORDER BY created_at DESC[0m  [["company_id", 6]]
+  Rendered jobs/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 0.5ms)
