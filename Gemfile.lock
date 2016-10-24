@@ -112,6 +112,7 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails-pry (0.0.1)
     railties (4.2.6)
       actionpack (= 4.2.6)
       activesupport (= 4.2.6)
@@ -192,6 +193,7 @@ DEPENDENCIES
   pg (~> 0.15)
   pure-css-rails
   rails (= 4.2.6)
+  rails-pry
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

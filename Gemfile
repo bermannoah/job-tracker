@@ -39,6 +39,7 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'nyan-cat-formatter'
+  gem 'rails-pry'
 end
 
 group :development do
