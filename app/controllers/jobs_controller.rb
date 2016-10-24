@@ -21,6 +21,7 @@ class JobsController < ApplicationController
 
   def create
     @job = @company.jobs.new(job_params)
+    @category_options = Category.all.map{ |c| [c.title, c.id ]}
     if @job.save
       flash[:success] = "You created #{@job.title} at #{@company.name}"
       redirect_to company_job_path(@company, @job)
@@ -63,7 +64,6 @@ class JobsController < ApplicationController
   end
   
   def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest, 
-                                :category_id, :tag_list)
+    params.require(:job).permit(:title, :description, :level_of_interest, :category_id, :tag_list)
   end
 end

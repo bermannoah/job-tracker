@@ -8,15 +8,13 @@
   <%= f.label :level_of_interest %>
   <%= f.number_field :level_of_interest %>
   
-  <div class="field">
+
   <%= f.label :category %>
   <%= f.select(:category_id, @category_options)  %>
-  </div>
-  
-  <p>
-    <%= f.label :tag_list %><br />
-    <%= f.text_field :tag_list %>
-  </p>
-  
+    
+  <%= f.label :tag_list %><br />
+  <%= f.text_field :tag_list %>
+
   <%= f.submit %>
+
 <% end %>
