@@ -2,8 +2,8 @@ capybara*.html
 
 .DS_Store
 
-tmp/
+/tmp/
 
-log/
+/log/
 
 .byebug_history
