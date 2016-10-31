@@ -19,7 +19,7 @@ class CompaniesController < ApplicationController
 
   def create
     @company = Company.new(company_params)
-    if @company.save
+    if @company.save  
       redirect_to company_path(@company)
     else
       render :new
@@ -47,7 +47,6 @@ class CompaniesController < ApplicationController
   def destroy
     company = Company.find(params[:id])
     company.delete
-
     flash[:success] = "#{company.name} was successfully deleted!"
     redirect_to companies_path
   end
