@@ -1,0 +1,9 @@
+All Jobs for <strong><%= @company.name %></strong>
+
+<ul>
+<% @company.jobs.each do |job| %>
+  <li><%= link_to job.title, job_path(@job) %></li>
+<% end %>
+</ul>
+
+<%= button_to "New Job", new_company_job_path(@company) %>

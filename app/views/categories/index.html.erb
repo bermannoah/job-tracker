@@ -1,0 +1,11 @@
+<h1>All Categories</h1>
+
+<ul class="list-group col-md-4">
+<% @categories.each do |category| %>
+  <li class="list-group-item"><%= link_to category.title, category_path(category) %>
+  <%= link_to "Edit Category", edit_category_path(category) %>
+  <%= link_to "Delete Category", category_path(category), method: :delete %></li>
+<% end %>
+</ul>
+
+<p class="btn btn-default"><%= link_to "New Category", new_category_path %></p>

@@ -1,0 +1,34 @@
+<h5>Title: <%= @job.title %>
+<br></h5>
+
+<h5>Description: <%= @job.description %>
+<br></h5>
+
+<h5>Level of Interest: <%= @job.level_of_interest %>
+<br></h5>
+
+<h5>Company: <%= link_to @job.company.name, company_path(@job.company) %></h5>
+
+<h5>Category: <%= link_to @job.category.title, category_path(@job.category) if @job.category %></h5>
+<br/>
+
+<div class="btn btn-default"><%= link_to "Edit", edit_company_job_path %></div>
+<div class="btn btn-default"><%= link_to "Delete", company_job_path(@company, @job), method: :delete %></div>
+<br/>
+<div class="job-form">
+<%= form_for @comment do |f| %>
+              <%= f.label :comment %>
+              <%= f.text_field :content %>
+              <%= hidden_field(:job, :id) %>
+              <%= f.submit %>
+            <% end %>
+          </div>
+<br/>
+<h5>Comments:</h5>
+<ul class="list-group">
+<% if @comments %>
+  <% @comments.each do |comment| %>
+    <li class="list-group-item col-md-4"><%= comment.content %></li>
+  <% end %>
+<% end %>
+</ul>

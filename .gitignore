@@ -1,0 +1,9 @@
+capybara*.html
+
+.DS_Store
+
+/tmp/
+
+/log/
+
+.byebug_history
