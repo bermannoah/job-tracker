@@ -26,7 +26,7 @@ All Contacts for <strong><%= @company.name %></strong>
             <ul>
               <% if @contacts %>
                 <% @contacts.each do |contact| %>
-                  <li>Name: <%= contact.name %>, Position: <%= contact.position %>, Email: <%= contact.email %></li>
+                  <li>Name: <%= contact.name %>, Position: <%= contact.position %>, Email: <%= auto_link("#{contact.email}") %></li>
                 <% end %>
               <% end %>
             </ul>

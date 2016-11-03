@@ -38,4 +38,42 @@ describe "User creates a new job" do
     expect(page).to have_content("80")
 
   end
+  
+  scenario "valid params" do
+    company = Company.create(name: "ESPN", city: "NYC")
+    category = Category.create(title: "Development")
+    job = Job.create(title: "Sleep", level_of_interest: 100, description: "Zzzz")
+    contact = Contact.new(name: "Sandman", email: "zzz@mythology.com")
+    
+    visit new_company_job_path(company)
+
+    fill_in "job[title]", with: job.title
+    fill_in "job[description]", with: job.description
+    fill_in "job[level_of_interest]", with: job.level_of_interest
+    find(:xpath, '//option[contains(text(), "Development")]').select_option
+    
+    click_button "Create"
+
+    expect(page).to have_content("ESPN")
+    expect(page).to have_content("Development")
+    expect(page).to have_content("100")
+  end
+  
+  scenario "invalid params" do
+    company = Company.create(name: "ESPN", city: "NYC")
+    category = Category.create(title: "Development")
+    job = Job.create(title: "Sleep")
+    contact = Contact.new(name: "Sandman", email: "zzz@mythology.com")
+    
+    visit new_company_job_path(company)
+
+    fill_in "job[title]", with: job.title
+    fill_in "job[description]", with: job.description
+    fill_in "job[level_of_interest]", with: job.level_of_interest
+    find(:xpath, '//option[contains(text(), "Development")]').select_option
+    
+    click_button "Create"
+
+    expect(page).to have_content("Please fill out all relevant information.")
+  end
 end

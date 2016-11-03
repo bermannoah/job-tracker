@@ -32,3 +32,9 @@
   <% end %>
 <% end %>
 </ul>
+
+<h5>Tags: <% @job.tags.each do |tag| %>
+            <%= tag.name %> - <%= tag.job_with_tag_count %>,
+          <% end %>
+</h5>
+        

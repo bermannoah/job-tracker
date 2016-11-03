@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_action :set_company, only: [:new, :create, :show, :edit, :update, :destroy]
-
+  
   def index
     if params.include?("sort")
       @jobs = Job.all.order(:level_of_interest).reverse
